@@ -4,6 +4,36 @@ npx vite
 
 
 
+
+
+
+
+## 2024-10-13
+
+Sure thing! Here’s a summary of today’s progress:
+
+- Modularized `main.js` by moving environment and panel setup into separate files (`environment.js` and `panel.js`) to keep the main script clean.
+- Implemented functionality to detect and respond to mouse clicks on the cube, including spawning a new cube that says "Hello".
+- Added responsive behavior to adjust scene size and camera perspective dynamically when the window is resized.
+- Enhanced the user experience with better camera control, including rotation and movement using WASD keys.
+
+Let’s pick up where we left off tomorrow! 😊
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ---
 
 Here’s a markdown-styled note with bullet points summarizing the steps to set up the environment, run the Three.js Hello World project on AWS, and set up Git:
