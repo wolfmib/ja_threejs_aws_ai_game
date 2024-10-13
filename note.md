@@ -21,6 +21,7 @@ Let’s pick up where we left off tomorrow! 😊
 
 
 
+![progress 1013](ass/1013.png)
 
 
 
