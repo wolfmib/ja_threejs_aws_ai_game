@@ -1,7 +1,7 @@
 
 ## 2024-10-13
 
-```markdown
+
 # ja_threejs_aws_ai_game
 
 **Educational repository for building an AI-powered gaming environment using Three.js, AWS services, OpenAI API, and FAISS vector store.**
@@ -45,4 +45,4 @@ Feel free to submit pull requests or open issues to discuss any improvements or 
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-```
+
