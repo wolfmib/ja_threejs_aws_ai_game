@@ -168,15 +168,15 @@ Here’s a markdown-styled note with bullet points summarizing the steps to set 
 
 ### **Done!** 🎉
 
-Your project is now set up and running on AWS, with the source code tracked and managed using GitHub.
+Done set up and running on AWS, with the source code tracked and managed using GitHub.
 
 ---
 
-Let me know if you'd like to add or modify anything in this note!
+
+---
 
 
-
-
+---
 
 
 
