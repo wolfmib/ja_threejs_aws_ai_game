@@ -4,6 +4,55 @@ npx vite
 
 
 
+## 2024-10-16
+
+
+## `ja_threejs_game` Repository Summary
+
+Here is a summary of the updates and enhancements made to the `ja_threejs_game` repository:
+
+### Key Features Implemented
+- **Initial Scene Setup**:
+  - Set up the basic Three.js environment, including a cube, grass plane, and skybox.
+  - Added multiple light sources (ambient, point, and directional lights) to improve scene lighting.
+
+- **Splitting the Interface**:
+  - Split the user interface into two panels: 
+    - **Left Panel**: Displays the 3D scene rendered with Three.js.
+    - **Right Panel**: Chat interface to interact with the agents.
+  - Adjusted the HTML and CSS to use 70% of the width for the Three.js scene and 30% for the chat and control panel.
+
+- **Interactive Elements**:
+  - Added interactive functionality, where clicking on the cube triggers a bot response in the right panel.
+  - Created an input form for typing messages, with a "Send" button to simulate interaction with the agent.
+
+- **Refactored Code**:
+  - Separated the environment (`environment.js`) and panel (`panel.js`) into distinct modules for better code organization.
+  - Modified the `main.js` to focus on the orchestration of these separate components.
+
+- **Responsive Adjustments**:
+  - Updated `main.js` to auto-adjust the renderer size to half the inner width (for the left panel), ensuring it resizes when the window size changes.
+
+- **gRPC Backend Design**:
+  - Created a plan for integrating a gRPC server to handle OpenAI LLM API calls.
+  - Designed a `.proto` schema to facilitate agent-based LLM requests, considering scalability and multi-agent communication.
+
+### Pending Features
+- **LLM Integration**:
+  - Plan to use gRPC with OpenAI API for interactive and dynamic responses from agents.
+  - Future expansion to include backup Go service with gRPC for better scalability and resilience.
+
+### Summary of Files Updated
+- **`index.html`**: Updated to split the window for the left panel (Three.js scene) and right panel (chat).
+- **`main.js`**: Handles orchestration, managing the environment and chat functionality, with resizing logic for responsive adjustments.
+- **`environment.js`**: Contains all Three.js scene setup details (lighting, grass, cube, etc.).
+- **`panel.js`**: Manages Tweakpane controls for lights, material properties, and more.
+
+### Future Plans
+- Integrate gRPC service with OpenAI API for better multi-agent interaction.
+- Develop a backup Go service using gRPC to handle OpenAI API requests reliably.
+- Expand agent features to handle complex contextual responses and maintain long-term conversation memories.
+
 
 
 
