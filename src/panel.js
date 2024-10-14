@@ -3,7 +3,8 @@ import { Pane } from 'tweakpane';
 import * as THREE from 'three';
 
 export function loadPanel(scene, cube, directionalLight, directionalLightHelper) {
-    const pane = new Pane();
+    const panelContainer = document.getElementById('panel-container');
+    const pane = new Pane({ container: panelContainer });
 
     // Adding a folder to group controls for material properties
     const materialFolder = pane.addFolder({ title: 'Material Properties' });

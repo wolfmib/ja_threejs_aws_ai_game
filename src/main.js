@@ -1,72 +1,63 @@
 // main.js
+
 import * as THREE from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import { Pane } from 'tweakpane';
 import { loadEnvironment } from './environment.js';
 import { loadPanel } from './panel.js';
 
-const { scene, camera, renderer, cube, directionalLight, directionalLightHelper, updateCameraPosition } = loadEnvironment();
+const width = (window.innerWidth * 7) / 10;
+const height = window.innerHeight;
+
+const { scene, camera, renderer, cube, directionalLight, directionalLightHelper, updateCameraPosition } = loadEnvironment(width, height);
 loadPanel(scene, cube, directionalLight, directionalLightHelper);
 
-// Set camera position to look down at the plane
+// Attach the renderer to the left-panel
+const leftPanel = document.getElementById('left-panel');
+leftPanel.appendChild(renderer.domElement);
+
 camera.position.set(0, 5, 10);
 camera.lookAt(0, 0, 0);
 console.log('Camera position set to:', camera.position);
 
-
-// Handle window resize
-window.addEventListener('resize', () => {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    console.log('Window resized:', window.innerWidth, window.innerHeight);
-});
-
-//################### End of camera ###############
-
-
-
-let pitch = 0;
-document.addEventListener('mousemove', (event) => {
-    if (event.buttons === 1) { // Left mouse button held down
-        camera.rotation.y -= event.movementX * 0.002;
-        pitch -= event.movementY * 0.002;
-        pitch = Math.max(-Math.PI / 2, Math.min(Math.PI / 2, pitch)); // Limit the pitch to avoid over-rotation
-        camera.rotation.x = pitch;
-    }
-});
-
-// Add raycaster for mouse interaction
+// Raycaster for detecting clicks on objects
 const raycaster = new THREE.Raycaster();
 const mouse = new THREE.Vector2();
 
-// Add event listener for mouse click
-window.addEventListener('click', (event) => {
-    // Calculate mouse position in normalized device coordinates (-1 to +1)
-    mouse.x = (event.clientX / window.innerWidth) * 2 - 1;
-    mouse.y = -(event.clientY / window.innerHeight) * 2 + 1;
+function onMouseClick(event) {
+    mouse.x = (event.clientX / width) * 2 - 1;
+    mouse.y = -((event.clientY / height) * 2 - 1);
 
-    // Update the raycaster with the camera and mouse position
     raycaster.setFromCamera(mouse, camera);
-
-    // Calculate objects intersected by the ray
     const intersects = raycaster.intersectObjects([cube]);
 
     if (intersects.length > 0) {
         console.log('Cube clicked!');
-        // Create a new cube that will pop up when the original cube is clicked
-        const newCubeGeometry = new THREE.BoxGeometry();
-        const newCubeMaterial = new THREE.MeshStandardMaterial({ color: 0xff0000 }); // Red cube
-        const newCube = new THREE.Mesh(newCubeGeometry, newCubeMaterial);
-        newCube.position.set(cube.position.x + 2, cube.position.y, cube.position.z); // Position next to the original cube
-        scene.add(newCube);
-        console.log('New cube added to scene:', newCube);
+        triggerBotResponse("What's up?");
+    }
+}
+
+window.addEventListener('click', onMouseClick);
+
+// Function to trigger bot response
+export function triggerBotResponse(message) {
+    const chatHistory = document.getElementById('chat-history');
+    if (chatHistory) {
+        const botResponse = document.createElement('p');
+        botResponse.innerHTML = `<strong>Bot:</strong> ${message}`;
+        chatHistory.appendChild(botResponse);
+
+        chatHistory.scrollTop = chatHistory.scrollHeight; // Scroll down to latest message
+    }
+}
+
+let pitch = 0;
+document.addEventListener('mousemove', (event) => {
+    if (event.buttons === 1) {
+        camera.rotation.y -= event.movementX * 0.002;
+        pitch -= event.movementY * 0.002;
+        pitch = Math.max(-Math.PI / 2, Math.min(Math.PI / 2, pitch));
+        camera.rotation.x = pitch;
     }
 });
-
-//###################################################
-
-
 
 function animate() {
     requestAnimationFrame(animate);
@@ -74,14 +65,12 @@ function animate() {
     cube.rotation.y += 0.01;
     updateCameraPosition();
 
-
     directionalLight.target.position.copy(cube.position);
     directionalLight.target.updateMatrixWorld();
     directionalLightHelper.update();
 
-
     renderer.render(scene, camera);
-    //console.log('Animating frame');
+    console.log('Animating frame');
 }
 
 animate();

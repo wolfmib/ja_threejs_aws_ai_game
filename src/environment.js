@@ -1,11 +1,11 @@
 // environment.js
 import * as THREE from 'three';
 
-export function loadEnvironment() {
+export function loadEnvironment(width,hight) {
     const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const camera = new THREE.PerspectiveCamera(75, width / hight, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer();
-    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setSize(width, hight);
     document.body.appendChild(renderer.domElement);
 
     // Add ambient light to the scene to improve visibility

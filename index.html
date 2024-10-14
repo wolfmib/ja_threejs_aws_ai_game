@@ -4,8 +4,100 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Three.js Game</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        #left-panel {
+            position: relative;
+            width: 70%; 
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #panel-container {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        #right-panel {
+            width: 30%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            background-color: #f0f0f0;
+        }
+
+        #chat-history {
+            flex: 1;
+            padding: 10px;
+            overflow-y: auto;
+            border-bottom: 2px solid #ccc;
+        }
+
+        #chat-input {
+            padding: 10px;
+            border-top: 2px solid #ccc;
+            display: flex;
+            align-items: center;
+            background-color: #fff;
+        }
+
+        #chat-input input {
+            flex: 1;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        #chat-input button {
+            margin-left: 10px;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
-    <script type="module" src="/src/main.js"></script>
+    <div id="left-panel">
+        <div id="panel-container"></div>
+        <script type="module" src="/src/main.js"></script>
+    </div>
+    <div id="right-panel">
+        <div id="chat-history">
+            <p><strong>Bot:</strong> Hello, how can I assist you today?</p>
+        </div>
+        <div id="chat-input">
+            <input type="text" id="message" placeholder="Type your message here..." />
+            <button id="send-button">Send</button>
+        </div>
+    </div>
+
+    <script type="module">
+        document.addEventListener('DOMContentLoaded', async () => {
+            try {
+                const { initializeChat } = await import('./src/right.js');
+                console.log("Initializing chat...");
+                initializeChat(); // Initialize the chat
+            } catch (error) {
+                console.error("Error initializing chat:", error);
+            }
+        });
+    </script>
 </body>
 </html>
