@@ -7,9 +7,13 @@ npx vite
 ## 2024-10-16
 
 
+
+![progress 1016](ass/yoyo.png)
+
+
+
 ## `ja_threejs_game` Repository Summary
 
-Here is a summary of the updates and enhancements made to the `ja_threejs_game` repository:
 
 ### Key Features Implemented
 - **Initial Scene Setup**:
@@ -52,6 +56,17 @@ Here is a summary of the updates and enhancements made to the `ja_threejs_game` 
 - Integrate gRPC service with OpenAI API for better multi-agent interaction.
 - Develop a backup Go service using gRPC to handle OpenAI API requests reliably.
 - Expand agent features to handle complex contextual responses and maintain long-term conversation memories.
+
+
+
+
+
+
+
+
+
+
+
 
 
 
