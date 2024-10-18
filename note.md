@@ -1,11 +1,25 @@
-## Run
+## Auto Run
 
-npx vite
-npx vite --https --port 8888
+- about auto run
+  - edit /etc/systemd/system/vite.service
+  - sudo systemctl daemon-reload
+  - sudo systemctl enable vite
+  - sudo systemctl start vite
+  - sudo systemctl status vite
 
 
 
-## 2024-10-16
+
+
+
+![finish one.game.johnny-alin-data.com](ass/one_game_domain_done.png)
+
+
+
+## 2024-10-16 , handle one.game.johnny-.com
+- use http run npx vite
+- use nginx to load .pem
+- use nginx redirect http(vite)
 
 
 

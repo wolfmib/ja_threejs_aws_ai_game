@@ -3,12 +3,8 @@
 
 
 
-## Let's do htttps 
-
-openssl s_client -connect johnny-alin-data.com:443 -showcerts
-
-## let's enceruty
-sudo certbot certonly --standalone -d johnny-alin-data.com
+## Let's do htttps  2024-10-18 sub-domain
+- Updated the Sub-domain via https
 
 
 

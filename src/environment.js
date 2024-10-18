@@ -28,7 +28,7 @@ export function loadEnvironment(width,hight) {
     // Load the grass texture
     const textureLoader = new THREE.TextureLoader();
     const grassTexture = textureLoader.load(
-        'http://15.237.164.208:8888/src/textures/grass.png',
+        'https://one.game.johnny-alin-data.com/src/textures/grass.png',
         () => console.log('Grass texture loaded successfully'),
         undefined,
         (err) => console.error('Error loading grass texture:', err)

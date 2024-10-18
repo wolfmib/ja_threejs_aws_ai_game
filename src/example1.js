@@ -27,7 +27,7 @@ scene.background = skyboxTexture;
 
 // Create a sphere to represent the sun
 const sunGeometry = new THREE.SphereGeometry(2, 32, 32);
-const sunTexture = new THREE.TextureLoader().load('http://15.237.164.208:8888/src/textures/sun_texture.png'); // Suggested texture
+const sunTexture = new THREE.TextureLoader().load('https://one.game.johnny-alin-data.com/src/textures/sun_texture.png'); // Suggested texture
 const sunMaterial = new THREE.MeshStandardMaterial({ map: sunTexture, emissive: 0xffd700, metalness: 1, roughness: 0.5});
 const sun = new THREE.Mesh(sunGeometry, sunMaterial);
 sun.position.set(10, 10, 10);
@@ -70,7 +70,7 @@ console.log('Directional light helper added to scene:', directionalLightHelper);
 // Load the grass texture
 const textureLoader = new THREE.TextureLoader();
 const grassTexture = textureLoader.load(
-    'http://15.237.164.208:8888/src/textures/grass.png',
+    'https://one.game.johnny-alin-data.com/src/textures/grass.png',
     () => console.log('Grass texture loaded successfully'),
     undefined,
     (err) => console.error('Error loading grass texture:', err)
