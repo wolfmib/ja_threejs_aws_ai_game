@@ -1,6 +1,7 @@
 ## Run
 
 npx vite
+npx vite --https --port 8888
 
 
 

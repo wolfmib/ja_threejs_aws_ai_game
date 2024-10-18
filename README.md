@@ -1,4 +1,24 @@
 
+
+
+
+
+## Let's do htttps 
+
+openssl s_client -connect johnny-alin-data.com:443 -showcerts
+
+## let's enceruty
+sudo certbot certonly --standalone -d johnny-alin-data.com
+
+
+
+
+
+
+
+
+
+
 ## 2024-10-13
 
 

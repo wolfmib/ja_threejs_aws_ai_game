@@ -1,0 +1,16 @@
+import { defineConfig } from 'vite';
+import fs from 'fs';
+import path from 'path';
+
+export default defineConfig({
+  server: {
+    host: '0.0.0.0',  // Accessible from outside
+    port: 8888,
+    cors: true,
+    https: {
+      key: fs.readFileSync(path.resolve(__dirname, 'key.pem')),
+      cert: fs.readFileSync(path.resolve(__dirname, 'cert.pem')),
+    },
+  },
+});
+
