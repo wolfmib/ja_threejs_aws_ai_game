@@ -9,9 +9,31 @@
 
 
 
+## 2024-10-19, embeded with open-ai-token
+
+- Added integration with OpenAI API to generate chatbot responses in the right-side prompt.
+- Implemented logic to load OpenAI API key from environment variables using `import.meta.env.VITE_OPENAI_API_KEY`.
+- Replaced mock response function with actual API call to OpenAI's GPT-4 model for realistic chatbot responses.
+- Introduced conversation buffer (FIFO) to maintain short-term memory for contextual conversations (set to 5 pairs).
+- Added logic to ensure buffer size remains within limits, allowing coherent follow-up responses without exceeding token constraints.
+- Tested successful communication with the OpenAI API, verified responses, and fine-tuned message handling logic.
+
+![Add open-ai-token ok](ass/embed_with_openai.png)
 
 
 
+
+
+
+
+
+
+
+---
+
+
+
+## Domain View (success )
 ![finish one.game.johnny-alin-data.com](ass/one_game_domain_done.png)
 
 
