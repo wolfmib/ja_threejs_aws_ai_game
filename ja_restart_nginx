@@ -1,0 +1,4 @@
+sudo systemctl daemon-reload       # Reload systemd manager configuration
+sudo systemctl restart vite.service # Restart the service to apply changes
+sudo systemctl status vite.service  # Check the service status
+
